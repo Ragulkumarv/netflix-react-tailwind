@@ -4,10 +4,13 @@ import { formValidation } from "../utils/formValidation";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebaseconfig";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [isSignIn, setSignIn] = useState(false);
-  const [errorMessage, setErrormessage] = useState("");
+  const [validationErrorMessage, setValidationErrormessage] = useState("");
+  const [apiErrorMessage, setApiErrormessage] = useState("");
+  const navigation = useNavigate();
 
   const email = useRef("");
   const password = useRef("");
@@ -22,7 +25,7 @@ const Login = () => {
       email.current?.value,
       password.current?.value
     );
-    setErrormessage(message);
+    setValidationErrormessage(message);
 
     if (!isSignIn) {
       //signup code
@@ -38,8 +41,13 @@ const Login = () => {
           setSignIn(!isSignIn);
         })
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
+          const errorCode = error?.code;
+          const errorMessage = error?.message;
+
+          if (errorCode.includes("already")) {
+            setApiErrormessage("Email Already Exist");
+            setSignIn(!isSignIn);
+          }
           // ..
         });
     } else {
@@ -51,12 +59,18 @@ const Login = () => {
       )
         .then((userCredential) => {
           // Signed in
+          setApiErrormessage("");
+          navigation("/browse");
           const user = userCredential.user;
           console.log(userCredential, "signin success......");
         })
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
+          const errorCode = error?.code;
+          const errorMessage = error?.message;
+
+          if (errorCode.includes("invalid")) {
+            setApiErrormessage("Invalid Credentials");
+          }
         });
     }
   };
@@ -236,7 +250,10 @@ const Login = () => {
                 type="password"
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
-              <p className="text-red-600 mt-1 text-xs">{errorMessage}</p>
+              <p className="text-red-600 mt-1 text-xs">
+                {validationErrorMessage}
+                {apiErrorMessage}
+              </p>
             </div>
 
             <div>
