@@ -1,8 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-import { signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebaseconfig";
 import { useNavigate } from "react-router-dom";
-import { removeUser } from "../utils/userSlice";
+import { addUser, removeUser } from "../utils/userSlice";
+import { useEffect } from "react";
+import { netflixLogo, userLogo } from "../utils/constants";
+import { removeTopRatedMovies } from "../utils/moviesSlice";
 const Header = () => {
   const user = useSelector((store) => store.user);
   const navigation = useNavigate();
@@ -12,13 +15,36 @@ const Header = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-        navigation("/");
         dispatch(removeUser());
       })
       .catch((error) => {
         // An error happened.
       });
   };
+
+  useEffect(() => {
+    // localStorage.setItem("dummy", true);
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+        const { uid, email } = user;
+        dispatch(addUser({ uid: uid, email: email }));
+        navigation("/browse");
+      } else {
+        // User is signed out
+        dispatch(removeUser());
+        dispatch(removeTopRatedMovies());
+        navigation("/");
+      }
+    });
+
+    return () => {
+      //unmount part
+      unsubscribe();
+    };
+  }, []);
+
   return (
     <>
       <section className="sticky top-0 h-auto min-h-16 z-[1]">
@@ -27,10 +53,7 @@ const Header = () => {
           role="navigation"
         >
           <div className="w-44">
-            <img
-              src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
-              alt="logo"
-            />
+            <img src={netflixLogo} alt="logo" />
           </div>
 
           <a
@@ -147,11 +170,7 @@ const Header = () => {
                         aria-label="Ragul – Account & Settings"
                       >
                         <span className="profile-link" role="presentation">
-                          <img
-                            className="profile-icon"
-                            src="https://occ-0-3252-1009.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABXYofKdCJceEP7pdxcEZ9wt80GsxEyXIbnG_QM8znksNz3JexvRbDLr0_AcNKr2SJtT-MLr1eCOA-e7xlDHsx4Jmmsi5HL8.png?r=1d4"
-                            alt=""
-                          />
+                          <img className="profile-icon" src={userLogo} alt="" />
                         </span>
                       </a>
                       <span className="caret" role="presentation" />
@@ -192,7 +211,7 @@ const Header = () => {
                   >
                     <img
                       className="profile-icon"
-                      src="https://occ-0-3252-1009.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABXYofKdCJceEP7pdxcEZ9wt80GsxEyXIbnG_QM8znksNz3JexvRbDLr0_AcNKr2SJtT-MLr1eCOA-e7xlDHsx4Jmmsi5HL8.png?r=1d4"
+                      src={userLogo}
                       alt="profile-icon"
                     ></img>
                   </button>

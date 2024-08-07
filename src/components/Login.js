@@ -5,12 +5,12 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebaseconfig";
 import { useNavigate } from "react-router-dom";
+import { baseBGImage } from "../utils/constants";
 
 const Login = () => {
   const [isSignIn, setSignIn] = useState(false);
   const [validationErrorMessage, setValidationErrormessage] = useState("");
   const [apiErrorMessage, setApiErrormessage] = useState("");
-  const navigation = useNavigate();
 
   const email = useRef("");
   const password = useRef("");
@@ -60,7 +60,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           setApiErrormessage("");
-          navigation("/browse");
           const user = userCredential.user;
           console.log(userCredential, "signin success......");
         })
@@ -80,10 +79,7 @@ const Login = () => {
       <Header />
       <div className="relative hidden sm:block">
         <div className="absolute">
-          <img
-            src="https://assets.nflxext.com/ffe/siteui/vlv3/826348c2-cdcb-42a0-bc11-a788478ba5a2/6d20b198-e7ab-4e9f-a1aa-666faa0298f9/IN-en-20240729-POP_SIGNUP_TWO_WEEKS-perspective_WEB_a67d8c9e-8121-4a74-98e4-8005eb2df227_large.jpg"
-            alt="logo"
-          />
+          <img src={baseBGImage} alt="logo" />
         </div>
       </div>
 

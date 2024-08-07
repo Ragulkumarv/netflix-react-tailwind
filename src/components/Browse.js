@@ -1,7 +1,15 @@
+import TopRatedMovies from "../hooks/topRatedMovies";
 import Header from "./Header";
+import VideoContainer from "./VideoContainer";
 
 const Browse = () => {
-  return <Header />;
+  TopRatedMovies();
+  return (
+    <>
+      <Header />
+      <VideoContainer />;
+    </>
+  );
 };
 
 export default Browse;
