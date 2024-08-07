@@ -300,13 +300,13 @@ const Login = () => {
 
           <div className="mt-4 text-center">
             <span className="text-sm text-gray-300">
-              {isSignIn ? "Already registered?" : "New to Netflix?"}{" "}
+              {!isSignIn ? "Already registered?" : "New to Netflix?"}{" "}
               <a
                 href="/"
                 className="text-white font-bold hover:underline"
                 onClick={(e) => handleSignIn(e)}
               >
-                {isSignIn ? "Sign in now." : "Sign up now."}
+                {!isSignIn ? "Sign in now." : "Sign up now."}
               </a>
             </span>
           </div>

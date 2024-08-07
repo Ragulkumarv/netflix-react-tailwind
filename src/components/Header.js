@@ -299,7 +299,6 @@ const Header = () => {
                     </a>
                     <div className="border-t border-gray-100"></div>
                     <a
-                      href="/#"
                       onClick={() => handleSignout()}
                       className="block px-4 py-2 text-sm text-white hover:cursor-pointer"
                       role="menuitem"
