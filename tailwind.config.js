@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        custom: "885px", // Adds a custom breakpoint
+        custom: "885px", // custom breakpoint for padding
       },
     },
   },
