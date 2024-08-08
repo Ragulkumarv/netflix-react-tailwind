@@ -6,14 +6,20 @@ const VideoPlay = ({ movieId }) => {
   MovieTrailer(movieId);
 
   return (
-    <iframe
-      src={"https://www.youtube.com/embed/" + trailerList?.key}
-      title="Inside Out 2 | Official Trailer"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerPolicy="strict-origin-when-cross-origin"
-      allowFullScreen
-      className="w-full h-full"
-    ></iframe>
+    <section className="w-screen">
+      <iframe
+        src={
+          "https://www.youtube.com/embed/" +
+          trailerList?.key +
+          "?autoplay=1&loop=1&mute=1"
+        }
+        title="Inside Out 2 | Official Trailer"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+        className="w-screen aspect-video"
+      ></iframe>
+    </section>
   );
 };
 
