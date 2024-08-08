@@ -11,11 +11,16 @@ const VideoContainer = () => {
 
   const movieId = movies[12];
 
-  const { id, original_title, overview } = movieId;
+  const { id, original_title, overview, backdrop_path } = movieId;
+
   return (
     <div className="relative h-screen">
       <VideoPlay movieId={id} />
-      <VideoBackground title={original_title} overview={overview} />
+      <VideoBackground
+        title={original_title}
+        overview={overview}
+        titleLogo={backdrop_path}
+      />
     </div>
   );
 };

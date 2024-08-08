@@ -27,6 +27,16 @@
   z-index: -1;
 }
 
+.mySwiper {
+  .swiper-button-prev,
+  .swiper-button-next {
+    &::after {
+      color: white;
+      font-size: 2rem;
+    }
+  }
+}
+
 h1 {
   @apply text-2xl md:text-3xl lg:text-4xl;
 }
