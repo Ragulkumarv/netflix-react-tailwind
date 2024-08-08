@@ -9,7 +9,7 @@ const VideoContainer = () => {
     return;
   }
 
-  const movieId = movies[2];
+  const movieId = movies[12];
 
   const { id, original_title, overview } = movieId;
   return (
