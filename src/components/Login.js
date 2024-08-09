@@ -306,16 +306,6 @@ const Login = () => {
               </a>
             </span>
           </div>
-
-          <div className="mt-4 text-center text-xs text-gray-300">
-            <p>
-              This page is protected by Google reCAPTCHA to ensure you're not a
-              bot.{" "}
-              <a href="/" className="text-blue-500 hover:underline">
-                Learn more.
-              </a>
-            </p>
-          </div>
         </div>
       </div>
     </>
