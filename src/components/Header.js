@@ -47,7 +47,7 @@ const Header = () => {
 
   return (
     <>
-      <section className="sticky top-0 h-auto min-h-16 z-[1]">
+      <section className="sticky top-0 h-auto min-h-16 z-[3]">
         <div
           className="main-header has-billboard menu-navigation flex items-center relative z-[2] h-16 bg-black text-white bg-gradient-to-b from-black px-[50px]"
           role="navigation"
