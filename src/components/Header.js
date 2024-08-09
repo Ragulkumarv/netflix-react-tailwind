@@ -15,6 +15,7 @@ const Header = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
+        localStorage.setItem("isUserLoggedIn", false);
         dispatch(removeUser());
       })
       .catch((error) => {
@@ -30,9 +31,16 @@ const Header = () => {
         // https://firebase.google.com/docs/reference/js/auth.user
         const { uid, email } = user;
         dispatch(addUser({ uid: uid, email: email }));
-        navigation("/browse");
+        if (
+          localStorage.getItem("isUserLoggedIn") === "false" ||
+          localStorage.getItem("isUserLoggedIn") === null
+        ) {
+          localStorage.setItem("isUserLoggedIn", true);
+          navigation("/browse");
+        }
       } else {
         // User is signed out
+        localStorage.setItem("isUserLoggedIn", false);
         dispatch(removeUser());
         dispatch(removeTopRatedMovies());
         navigation("/");
