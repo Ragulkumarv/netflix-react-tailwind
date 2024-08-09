@@ -4,7 +4,6 @@ import { formValidation } from "../utils/formValidation";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebaseconfig";
-import { useNavigate } from "react-router-dom";
 import { baseBGImage } from "../utils/constants";
 
 const Login = () => {
