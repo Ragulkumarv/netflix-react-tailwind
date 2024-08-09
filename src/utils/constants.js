@@ -48,4 +48,4 @@ export const TMDB_IMG_Path = "https://image.tmdb.org/t/p/w500/";
 export const Youtube_Embed_BasePath = "https://www.youtube.com/embed/";
 
 export const Youtube_Embed_Controls =
-  "?autoplay=1&loop=1&mute=1&controls=0&showinfo=0&rel=0";
+  "?autoplay=1&loop=1&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1";

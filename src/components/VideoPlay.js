@@ -23,7 +23,7 @@ const VideoPlay = ({ movieId }) => {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
-        className="w-screen h-screen"
+        className="w-screen h-screen scale-125"
       ></iframe>
     </section>
   );

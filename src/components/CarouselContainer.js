@@ -11,7 +11,7 @@ const CarouselContainer = () => {
   return (
     <>
       {topMovieList !== null && popularMovieList !== null && (
-        <>
+        <section className="pb-14 bg-black">
           <MovieCard
             movies={nowPlayingMovieList}
             title={"Now Playing"}
@@ -32,7 +32,7 @@ const CarouselContainer = () => {
             title={"Upcoming"}
             marginTop={false}
           />
-        </>
+        </section>
       )}
     </>
   );

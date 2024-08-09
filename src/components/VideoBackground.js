@@ -1,8 +1,8 @@
 const VideoBackground = ({ title, overview }) => {
   return (
-    <div className="absolute inset-0 w-2/5 items-center flex flex-col bg-gradient-to-r from-black justify-center  p-16">
+    <div className="absolute inset-0 w-2/5 flex flex-col bg-gradient-to-r from-black justify-center  p-16">
       <h1 className="text-white text-7xl mb-5">{title}</h1>
-      <h2 className="text-white text-lg mb-14">{overview}</h2>
+      <h2 className="text-white text-lg mb-14 line-clamp-2">{overview}</h2>
 
       <div className="flex space-x-4">
         <button className="bg-white text-black flex items-center py-2 px-4 rounded hover:bg-gray-300 transition duration-300">

@@ -14,7 +14,7 @@ const VideoContainer = () => {
   const { id, original_title, overview, backdrop_path } = movieId;
 
   return (
-    <div className="relative h-screen">
+    <div className="relative h-screen overflow-hidden">
       <VideoPlay movieId={id} />
       <VideoBackground
         title={original_title}

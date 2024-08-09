@@ -53,7 +53,7 @@ const Header = () => {
           role="navigation"
         >
           <div className="w-44">
-            <img src={netflixLogo} alt="logo" />
+            <img src={netflixLogo} alt="logo" href="/" />
           </div>
 
           <a
@@ -64,34 +64,6 @@ const Header = () => {
           {user && (
             <>
               <ul className="tabbed-primary-navigation  items-center m-0 p-0 hidden sm:flex">
-                <li className="navigation-menu ml-5 block custom:hidden">
-                  <a
-                    className="menu-trigger"
-                    role="button"
-                    aria-haspopup="true"
-                    href="/browse"
-                    tabIndex={0}
-                  >
-                    Browse
-                  </a>
-                </li>
-                <li className="navigation-tab ml-5">
-                  <a href="/browse" className="current active">
-                    Home
-                  </a>
-                </li>
-                <li className="navigation-tab ml-5">
-                  <a href="/browse/genre/83">TV Shows</a>
-                </li>
-                <li className="navigation-tab ml-5">
-                  <a href="/browse/genre/34399">Movies</a>
-                </li>
-                <li className="navigation-tab ml-5">
-                  <a href="/latest">New &amp; Popular</a>
-                </li>
-                <li className="navigation-tab ml-5">
-                  <a href="/browse/my-list">My List</a>
-                </li>
                 <li className="navigation-tab ml-5">
                   <a href="/browse/original-audio">Browse by Languages</a>
                 </li>
@@ -179,9 +151,8 @@ const Header = () => {
                 </div>
               </div>
 
-              <div className="absolute lg:right-16 inline-block text-left z-[3]">
+              <div className="absolute right-16 inline-block text-left z-[3]">
                 <div className="flex items-center">
-                  <span className="mr-4 text-white">Children</span>
                   <span className="relative mr-4">
                     <span className="absolute top-[-8px] right-[-8px] inline-block w-[17px] h-[17px] bg-red-600 text-white text-xs leading-tight rounded-full">
                       10
@@ -206,8 +177,7 @@ const Header = () => {
                   </span>
                   <button
                     type="button"
-                    className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm  bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
-                    id="options-menu"
+                    className="mr-4 rounded-md border border-gray-300 shadow-sm  bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
                   >
                     <img
                       className="profile-icon"
@@ -215,116 +185,12 @@ const Header = () => {
                       alt="profile-icon"
                     ></img>
                   </button>
-                </div>
-
-                <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-black  ring-1 ring-black ring-opacity-5  transition-opacity duration-200">
-                  <div
-                    className="py-1"
-                    role="menu"
-                    aria-orientation="vertical"
-                    aria-labelledby="options-menu"
+                  <button
+                    onClick={() => handleSignout()}
+                    className="block text-sm text-white hover:cursor-pointer"
                   >
-                    <a
-                      href="/"
-                      className="flex items-center px-4 py-2 text-sm text-white hover:cursor-pointer"
-                      role="menuitem"
-                    >
-                      <span className="inline-block w-4 h-4 bg-pink-500 rounded-full mr-2"></span>
-                      Kids
-                    </a>
-                    <a
-                      href="/"
-                      className="flex items-center px-4 py-2 text-sm text-white hover:cursor-pointer"
-                      role="menuitem"
-                    >
-                      <svg
-                        className="w-5 h-5 mr-2 text-gray-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M17 11H7m10 0a5 5 0 00-5-5v0a5 5 0 00-5 5m10 0v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6"
-                        ></path>
-                      </svg>
-                      Manage Profiles
-                    </a>
-                    <a
-                      href="/"
-                      className="flex items-center px-4 py-2 text-sm text-white hover:cursor-pointer"
-                      role="menuitem"
-                    >
-                      <svg
-                        className="w-5 h-5 mr-2 text-gray-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M15 12h-3m3 0a2 2 0 01-2 2 2 2 0 01-2-2m4 0H7m4 0a2 2 0 01-2-2 2 2 0 012-2m0 4v6m0-6a2 2 0 01-2-2 2 2 0 012-2m0 0v6m0-6a2 2 0 012-2 2 2 0 012 2v0a2 2 0 01-2 2m0-4v6m0-6a2 2 0 00-2-2 2 2 0 00-2 2v0a2 2 0 002 2m0-4v6"
-                        ></path>
-                      </svg>
-                      Transfer Profile
-                    </a>
-                    <a
-                      href="/"
-                      className="flex items-center px-4 py-2 text-sm text-white hover:cursor-pointer"
-                      role="menuitem"
-                    >
-                      <svg
-                        className="w-5 h-5 mr-2 text-gray-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M11 17h2a2 2 0 002-2v-1a2 2 0 012-2h1a2 2 0 002-2V7a2 2 0 00-2-2h-1a2 2 0 01-2-2V2a2 2 0 00-2-2h-2a2 2 0 00-2 2v1a2 2 0 01-2 2H7a2 2 0 00-2 2v1a2 2 0 01-2 2H2a2 2 0 00-2 2v2a2 2 0 002 2h1a2 2 0 012 2v1a2 2 0 002 2h2z"
-                        ></path>
-                      </svg>
-                      Account
-                    </a>
-                    <a
-                      href="/"
-                      className="flex items-center px-4 py-2 text-sm text-white hover:cursor-pointer"
-                      role="menuitem"
-                    >
-                      <svg
-                        className="w-5 h-5 mr-2 text-gray-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M8 11h4m-2-2v4m-6-4h1a2 2 0 012 2v1m0-1a2 2 0 012 2v1m0-1a2 2 0 012 2v1m0-1a2 2 0 012 2v1m0-1a2 2 0 012 2v1m0-1a2 2 0 012 2v1m0-1a2 2 0 012 2v1m0-1a2 2 0 012 2v1m0-1a2 2 0 012 2v1m0-1a2 2 0 012 2v1m0-1a2 2 0 012 2v1m0-1a2 2 0 012 2v1m0-1a2 2 0 012 2v1m0-1a2 2 0 012 2v1m0-1a2 2 0 012 2v1m0-1a2 2 0 012 2v1m0-1a2 2 0 012 2v1m0-1a2 2 0 012 2v1m0-1a2 2 0 012 2v1m0-1a2 2 0 012 2v1m0-1a2 2 0 012 2v1m0-1a2 2 0 012 2v1m0-1a2 2 0 012 2v1m0-1a2 2 0 012 2v1"
-                        ></path>
-                      </svg>
-                      Help Centre
-                    </a>
-                    <div className="border-t border-gray-100"></div>
-                    <a
-                      onClick={() => handleSignout()}
-                      className="block px-4 py-2 text-sm text-white hover:cursor-pointer"
-                      role="menuitem"
-                    >
-                      Sign out of Netflix
-                    </a>
-                  </div>
+                    Sign out
+                  </button>
                 </div>
               </div>
             </>
