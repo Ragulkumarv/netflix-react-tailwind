@@ -73,8 +73,8 @@ const Header = () => {
             <>
               <ul className="tabbed-primary-navigation  items-center m-0 p-0 hidden sm:flex">
                 <li className="navigation-tab ml-5 flex animate-bounce">
-                  <a href="/gpt-search" className="mr-2">
-                    GPT Search
+                  <a href="/movie-search" className="mr-2">
+                    Movie Search
                   </a>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

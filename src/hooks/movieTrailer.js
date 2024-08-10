@@ -16,7 +16,6 @@ const MovieTrailer = (movieId) => {
       API_Options
     );
     const data = await url.json();
-    console.log(data, "video");
 
     const filterTrailer = data?.results?.filter(
       (movie) => movie.type.toLowerCase() === "trailer"

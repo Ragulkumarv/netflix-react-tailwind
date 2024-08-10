@@ -2,7 +2,7 @@ import Login from "./Login";
 import Browse from "./Browse";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Error from "./Error";
-import GptSearch from "./GptSearch";
+import Search from "./Search";
 
 const Body = () => {
   const routes = createBrowserRouter([
@@ -17,8 +17,8 @@ const Body = () => {
       errorElement: <Error />,
     },
     {
-      path: "/gpt-search",
-      element: <GptSearch />,
+      path: "/movie-search",
+      element: <Search />,
       errorElement: <Error />,
     },
   ]);

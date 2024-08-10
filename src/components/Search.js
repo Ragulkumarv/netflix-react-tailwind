@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import {
   API_Options,
   baseBGImage,
@@ -6,14 +6,17 @@ import {
   Search_Movies_API_Params,
 } from "../utils/constants";
 import Header from "./Header";
+import { useDispatch } from "react-redux";
+import { addSearchedMovie } from "../utils/moviesSlice";
+import MovieResults from "./MovieResults";
 
-const GptSearch = () => {
+const Search = () => {
   const inputVal = useRef(null);
-  const handleGPTSearch = (e) => {
-    initGPT();
-  };
+  const [dataFetched, setDataFetched] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const dispatch = useDispatch();
 
-  const initGPT = async () => {
+  const handleGPTSearch = async () => {
     const url = await fetch(
       Search_Movies_API_BaseURL +
         inputVal.current?.value +
@@ -21,10 +24,12 @@ const GptSearch = () => {
       API_Options
     );
 
-    const resp = await url?.json();
-    console.log(resp, "..............");
-    console.log(inputVal.current?.value, "input");
+    const resp = await url.json();
+    dispatch(addSearchedMovie(resp?.results));
+    setDataFetched(true);
+    setSearchTerm(inputVal.current?.value);
   };
+
   return (
     <>
       <Header />
@@ -36,7 +41,7 @@ const GptSearch = () => {
             className="w-screen h-screen xl:w-auto xl:h-auto"
           />
         </div>
-        <section className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <section className="relative z-[3] p-10">
           <form
             className="flex justify-center items-center text-center gap-3"
             onSubmit={(e) => e.preventDefault()}
@@ -49,17 +54,23 @@ const GptSearch = () => {
             />
             <button
               className="bg-red-600 hover:bg-red-700 text-white font-bold rounded-md px-[49px] py-[20px]"
-              onClick={() => handleGPTSearch()}
+              onClick={handleGPTSearch}
             >
               Search
             </button>
           </form>
         </section>
+        {dataFetched && (
+          <section className="relative z-[3]">
+            <div className="font-semibold text-white text-4xl pl-[60px]">
+              Results based on {searchTerm}
+            </div>
+            <MovieResults />
+          </section>
+        )}
       </div>
-
-      <div></div>
     </>
   );
 };
 
-export default GptSearch;
+export default Search;

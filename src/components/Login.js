@@ -36,7 +36,7 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          console.log(userCredential, "signup success......");
+
           setSignIn(!isSignIn);
         })
         .catch((error) => {
@@ -60,7 +60,6 @@ const Login = () => {
           // Signed in
           setApiErrormessage("");
           const user = userCredential.user;
-          console.log(userCredential, "signin success......");
         })
         .catch((error) => {
           const errorCode = error?.code;

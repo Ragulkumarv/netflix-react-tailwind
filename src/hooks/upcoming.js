@@ -13,7 +13,6 @@ const UpcomingMovies = () => {
 
     const data = await url.json();
     dispatch(addUpcomingMovies(data.results));
-    console.log(data, "UpcomingMovies api data");
   };
 };
 

@@ -13,7 +13,6 @@ const TopRatedMovies = () => {
 
     const data = await url.json();
     dispatch(addTopRatedMovies(data.results));
-    console.log(data, "TopRatedMovies api data");
   };
 };
 
