@@ -15,7 +15,7 @@ export const API_Options = {
   headers: {
     accept: "application/json",
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxYzA2ZWJmYWE3MWJhZjFhYjRkMDFjZjQ4MWE0ZTgxOSIsIm5iZiI6MTcyMzAxODg3NC43Njk0MDQsInN1YiI6IjY2YjMyZDQ4YjJkMWM1NWM3OTZmMGE5OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZWTCVFwbAzsF4dcVqBSCxM0YophGGIy1clFPyt5B_Zw",
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MWE1NTM0NDVkNTNhMGI5Zjc5NGQ4NDhiNzZlMGUwZCIsIm5iZiI6MTcyMzIxNzU5Ny4xNTM4NTMsInN1YiI6IjY2YjMyZDQ4YjJkMWM1NWM3OTZmMGE5OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Tl0SAru2gLLzC8nRM13p0eb0RYp00Ua-J4wQAK-x7R4",
   },
 };
 
@@ -49,3 +49,9 @@ export const Youtube_Embed_BasePath = "https://www.youtube.com/embed/";
 
 export const Youtube_Embed_Controls =
   "?autoplay=1&loop=1&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1";
+
+export const Search_Movies_API_BaseURL =
+  "https://api.themoviedb.org/3/search/movie?query=";
+
+export const Search_Movies_API_Params =
+  "&include_adult=false&language=en-US&page=1&region=IN";
