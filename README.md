@@ -1,6 +1,7 @@
 Netflix clone application built using React, Tailwind CSS, Redux Toolkit, and Firebase Authentication. This project replicates key features of Netflix, including user authentication, browsing movies/TV shows, and viewing details.
 
 🚀 Features
+
 User Authentication: Sign up, login, and logout functionality using Firebase Authentication.
 
 Redux Toolkit: Centralized state management to handle application state.
@@ -12,6 +13,7 @@ Responsive Design: Mobile-first design using Tailwind CSS.
 Dynamic UI: Conditional rendering based on user authentication status.
 
 🛠️ Tech Stack
+
 React: A JavaScript library for building user interfaces.
 
 Tailwind CSS: A utility-first CSS framework for rapidly building custom designs.
