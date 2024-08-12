@@ -6,6 +6,8 @@ Redux Toolkit: Centralized state management to handle application state.
 Movie Browsing: Browse movies fetched from an external API(TMDB).
 Responsive Design: Mobile-first design using Tailwind CSS.
 Dynamic UI: Conditional rendering based on user authentication status.
+
+
 🛠️ Tech Stack
 React: A JavaScript library for building user interfaces.
 Tailwind CSS: A utility-first CSS framework for rapidly building custom designs.
