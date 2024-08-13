@@ -16,6 +16,16 @@ const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const dispatch = useDispatch();
 
+  const debounce = (func, delay) => {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        func(...args);
+      }, delay);
+    };
+  };
+
   const handleGPTSearch = async () => {
     const url = await fetch(
       Search_Movies_API_BaseURL +
@@ -51,10 +61,11 @@ const Search = () => {
               type="text"
               placeholder="What's in your mind"
               className="px-[49px] py-[20px] rounded-md w-[220px] md:w-[600px] focus:outline-none"
+              onChange={debounce(handleGPTSearch, 500)}
             />
             <button
               className="bg-red-600 hover:bg-red-700 text-white font-bold rounded-md px-[49px] py-[20px]"
-              onClick={handleGPTSearch}
+              onClick={() => handleGPTSearch()}
             >
               Search
             </button>
