@@ -60,11 +60,11 @@ const Search = () => {
               ref={inputVal}
               type="text"
               placeholder="What's in your mind"
-              className="px-[49px] py-[20px] rounded-md w-[220px] md:w-[600px] focus:outline-none"
+              className="px-[30px] py-[10px] rounded-md w-[220px] md:w-[600px] focus:outline-none"
               onChange={debounce(handleGPTSearch, 500)}
             />
             <button
-              className="bg-red-600 hover:bg-red-700 text-white font-bold rounded-md px-[49px] py-[20px]"
+              className="bg-red-600 hover:bg-red-700 text-white font-bold rounded-md px-[30px] py-[10px]"
               onClick={() => handleGPTSearch()}
             >
               Search

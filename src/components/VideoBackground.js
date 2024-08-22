@@ -1,6 +1,6 @@
 const VideoBackground = ({ title, overview }) => {
   return (
-    <div className="absolute inset-0 w-2/5 flex flex-col bg-gradient-to-r from-black justify-center  p-16">
+    <div className="absolute inset-0 w-auto lg:w-2/5 flex flex-col bg-gradient-to-r from-black justify-center  p-16">
       <h1 className="text-white text-7xl mb-5">{title}</h1>
       <h2 className="text-white text-lg mb-14 line-clamp-2">{overview}</h2>
 
