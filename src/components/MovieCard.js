@@ -50,14 +50,11 @@ const MovieCard = ({ movies, title, marginTop }) => {
             className="mySwiper  !px-[60px] "
           >
             {movies?.map((item) => (
-              <SwiperSlide
-                key={item.id}
-                className="transform transition-transform duration-300 hover:scale-95 cursor-pointer"
-              >
+              <SwiperSlide key={item.id} className="cursor-pointer">
                 <img
                   src={TMDB_IMG_Path + item.poster_path}
                   alt={item.title}
-                  className="!h-[294px] !w-[294px] rounded-lg"
+                  className="!h-[294px] !w-[294px] rounded-lg transform transition-transform duration-300 hover:scale-95"
                 />
               </SwiperSlide>
             ))}
