@@ -60,9 +60,9 @@ const Header = () => {
           className="main-header has-billboard menu-navigation flex items-center relative z-[2] h-16 bg-black text-white bg-gradient-to-b from-black px-[50px]"
           role="navigation"
         >
-          <div className="w-44">
-            <img src={netflixLogo} alt="logo" href="/" />
-          </div>
+          <a className="w-44" href="/browse">
+            <img src={netflixLogo} alt="logo" />
+          </a>
 
           <a
             href="/browse"
