@@ -51,7 +51,7 @@ const Search = () => {
             className="w-screen h-screen xl:w-auto xl:h-auto"
           />
         </div>
-        <section className="relative z-[3] p-10">
+        <section className="relative z-[3] p-20">
           <form
             className="flex justify-center items-center text-center gap-3"
             onSubmit={(e) => e.preventDefault()}
