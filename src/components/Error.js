@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { errorBGImage } from "../utils/constants";
 import Header from "./Header";
 
@@ -17,12 +18,13 @@ const Error = () => {
             Sorry, we can't find that page. You'll find lots to explore on the
             home page.
           </p>
-          <a
-            href="/browse"
+
+          <Link
+            to={"/browse"}
             className="bg-white text-black text-lg font-semibold py-2 px-4 rounded hover:bg-gray-300 transition duration-300"
           >
             Netflix Home
-          </a>
+          </Link>
         </div>
       </div>
     </>

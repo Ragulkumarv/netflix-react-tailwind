@@ -5,6 +5,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebaseconfig";
 import { baseBGImage } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [isSignIn, setSignIn] = useState(false);
@@ -137,21 +138,20 @@ const Login = () => {
           </div>
 
           <div className="mt-4 text-center">
-            <a href="/" className="text-sm text-gray-300 hover:underline">
+            <Link to={"/"} className="text-sm text-gray-300 hover:underline">
               Forgot password?
-            </a>
+            </Link>
           </div>
 
           <div className="mt-4 text-center">
             <span className="text-sm text-gray-300">
               {!isSignIn ? "Already registered?" : "New to Netflix?"}{" "}
-              <a
-                href="/"
+              <Link
                 className="text-white font-bold hover:underline"
                 onClick={(e) => handleSignIn(e)}
               >
                 {!isSignIn ? "Sign in now." : "Sign up now."}
-              </a>
+              </Link>
             </span>
           </div>
         </div>

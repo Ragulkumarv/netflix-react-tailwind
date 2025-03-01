@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebaseconfig";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addUser, removeUser } from "../utils/userSlice";
 import { useEffect } from "react";
 import { netflixLogo, userLogo } from "../utils/constants";
@@ -60,22 +60,23 @@ const Header = () => {
           className="main-header has-billboard menu-navigation flex items-center relative z-[2] h-16 bg-black text-white bg-gradient-to-b from-black px-[50px]"
           role="navigation"
         >
-          <a className="w-44" href="/browse">
+          <Link className="w-44" to={"/browse"}>
             <img src={netflixLogo} alt="logo" />
-          </a>
+          </Link>
 
-          <a
-            href="/browse"
+          <Link
+            to={"/browse"}
             className="logo icon-logoUpdate active"
             aria-label="Netflix"
-          />
+          ></Link>
+
           {user && (
             <>
               <ul className="tabbed-primary-navigation  items-center m-0 p-0 hidden sm:flex">
                 <li className="navigation-tab ml-5 flex animate-bounce">
-                  <a href="/movie-search" className="mr-2">
+                  <Link to={"/movie-search"} className="mr-2">
                     Movie Search
-                  </a>
+                  </Link>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
