@@ -57,10 +57,10 @@ const Header = () => {
     <>
       <section className="sticky top-0 h-auto min-h-16 z-[3]">
         <div
-          className="main-header has-billboard menu-navigation flex items-center relative z-[2] h-16 bg-black text-white bg-gradient-to-b from-black px-[50px]"
+          className="main-header has-billboard menu-navigation flex items-center relative z-[2] h-16 bg-black text-white bg-gradient-to-b from-black sm:px-[25px]"
           role="navigation"
         >
-          <Link className="w-44" to={"/browse"}>
+          <Link className="w-28 sm:w-44" to={"/browse"}>
             <img src={netflixLogo} alt="logo" />
           </Link>
 
@@ -72,7 +72,7 @@ const Header = () => {
 
           {user && (
             <>
-              <ul className="tabbed-primary-navigation  items-center m-0 p-0 hidden sm:flex">
+              <ul className="tabbed-primary-navigation  items-center m-0 p-0 flex">
                 <li className="navigation-tab ml-5 flex animate-bounce">
                   <Link to={"/movie-search"} className="mr-2">
                     Movie Search
@@ -97,7 +97,7 @@ const Header = () => {
                 </li>
               </ul>
 
-              <div className="absolute right-16 inline-block text-left z-[3]">
+              <div className="absolute sm:right-12 right-3 inline-block text-left z-[3]">
                 <div className="flex items-center">
                   <span className="relative mr-4">
                     <span className="absolute top-[-8px] right-[-8px] inline-block w-[17px] h-[17px] bg-red-600 text-white text-xs leading-tight rounded-full">

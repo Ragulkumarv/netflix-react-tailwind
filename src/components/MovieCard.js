@@ -18,7 +18,7 @@ const MovieCard = ({ movies, title, marginTop }) => {
             marginTop ? "mt-[-200px] relative z-0" : "relative z-0 pt-8"
           }`}
         >
-          <h3 className="text-white mb-3 px-[60px]">{title}</h3>
+          <h3 className="text-white mb-3 px-[30px] sm:px-[40px]">{title}</h3>
           <Swiper
             cssMode={true}
             navigation={true}
@@ -47,7 +47,7 @@ const MovieCard = ({ movies, title, marginTop }) => {
               },
             }}
             modules={[Navigation, Mousewheel, Keyboard]}
-            className="mySwiper  !px-[60px] "
+            className="mySwiper  !px-[30px] sm:!px-[40px]"
           >
             {movies?.map((item) => (
               <SwiperSlide key={item.id} className="cursor-pointer">
